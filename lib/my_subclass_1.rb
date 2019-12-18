@@ -1,15 +1,15 @@
 
-class My_class
+class My_subclass_1
   def initialize
   end
 
   # FAKE DATABASE *********
-  @@main_class = {}
+  @@sub_class = {}
   @@total_rows = 0
 
   # CREATE ****************
   def create_method()
-    @@main_class[self.id] = Main_class.new({ :name => self.name, :id => self.id })
+    @@sub_class[self.id] = Sub_class.new({ :name => self.name, :id => self.id })
   end
 
   # READ*****************
@@ -21,12 +21,12 @@ class My_class
   # UPDATE***************
   def update(thing)
     self.thing = thing
-    @@main_class[self.id] = Main_class.new({ :thing => self.thing, :id => self.id })
+    @@sub_class[self.id] = Sub_class.new({ :thing => self.thing, :id => self.id })
   end
 
   # DELETE***************
   def self.delete
-    @@albums = {}
+    @@sub_class = {}
     @@total_rows = 0
   end
 

@@ -1,0 +1,33 @@
+<h2>Class Name: <%= @class.name %></h2>
+
+<h3>Subclass name</h3>
+
+  <% if @class.subclass_thing %>
+    <ul>
+      <% @class.subclass_thing.each do |subclass| %>
+        <li><a href="/classs/<%= @class.id %>/subclass_thing/<%= subclass.id %>"><%= subclass.name %></a></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There are no subclass_thing listed for this class yet.</p>
+  <% end %>
+
+<h4>Add a subclass:</h4>
+
+<form action="/classs/<%= @class.id %>/subclass_thing" method="post">
+  <div class="form-group">
+    <label for="subclass_name">Song name</label>
+    <input id="subclass_name" name="subclass_name" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn">Add subclass</button>
+</form>
+
+
+<!-- EXAMPLE
+<form action="/classs/<%= @class.id() %>/buy" method="get">
+  <input name="_method" type="hidden" value="buy">
+  <button type="submit">Buy class</button>
+</form> -->
+
+
+<p><a href="/classs">Return to class list</a></p>
